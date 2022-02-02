@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+:root {
+    --light-bg-color: #eff5ff;
+    --main-color: #8c52ff;
+    --accent-color: #1ac774;
+    --secondary-color: #ff6c21;
+    --complement-color: #38b6ff; 
+    --big-font: 2.4rem;
+    --med-font: 1.8rem;
+    --small-font: 1.2rem;
+    --tiny-font: 1rem;
+}
