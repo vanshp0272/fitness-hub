@@ -1,10 +1,15 @@
 import ProgressCard from "./components/ProgressCard";
+import GlobalProgressCard from "./components/GlogalProgressCard";
 import "./App.css";
 
 function App() {
   return (
     <>
       <h1>Fitness Hub</h1>
+
+      <section className="global-info">
+        <GlobalProgressCard />
+      </section>
 
       <section className="card-container">
         <ProgressCard

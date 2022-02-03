@@ -52,10 +52,18 @@ html {
     font-weight: bold;
 }
 
+.text--italic {
+    font-style: italic;
+}
+
+.text--center {
+    text-align: center;
+}
+
 
 /* Layout styles */
 section {
-    margin: 0 var(--margin-size);
+    margin: 3em var(--margin-size);
 }
 
 .card-container {
