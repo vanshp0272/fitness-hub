@@ -1,11 +1,11 @@
 .card--global {
     width: 100%;
-    min-height: 300px;
+    height: 300px;
 }
 
 .card__progress {
-    width: 50%;
-    height: 50%;
+    width: 150px;
+    height: 150px;
     position: relative;
     margin-top: 2em;
     left: 50%;
