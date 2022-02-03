@@ -4,13 +4,13 @@ import "./App.css";
 function App() {
   return (
     <>
-      Fitness Hub
+     <h1>Fitness Hub</h1>
 
       <section className="card-container">
-        <ProgressCard name="First card" />
-        <ProgressCard name="Second card" />
-        <ProgressCard name="Third card" />
-        <ProgressCard name="Fourth card" />
+        <ProgressCard name="First card" cardStyle="card--green" />
+        <ProgressCard name="Second card" cardStyle="card--orange"/>
+        <ProgressCard name="Third card" cardStyle="card--blue" />
+        <ProgressCard name="Fourth card" cardStyle="card--purple"/>
       </section>
     </>
   );

@@ -18,6 +18,14 @@
     --margin-size: 1rem;
 }
 
+h1, h2, h3, h4 {
+    font-size: var(--big-font);
+}
+
+p, a {
+    font-size: var(--med-font);
+}
+
 section {
     margin: 0 var(--margin-size);
 }
