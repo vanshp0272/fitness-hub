@@ -29,6 +29,7 @@ html {
 .text {
     color: inherit;
     text-decoration: none;
+    font-weight: normal;
 }
 
 .text--big {
@@ -45,6 +46,10 @@ html {
 
 .text--tiny {
     font-size: var(--tiny-font);
+}
+
+.text--bold {
+    font-weight: bold;
 }
 
 

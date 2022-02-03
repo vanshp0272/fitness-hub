@@ -26,4 +26,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: .6em;
+}
+
+.card__counter {
+    display: flex;
+    align-items: baseline;
+}
+
+.card__counter span {
+    margin-right: .2em;
 }
