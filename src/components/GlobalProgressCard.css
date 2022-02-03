@@ -1,0 +1,26 @@
+.card--global {
+    width: 100%;
+    height: 300px;
+}
+
+.card__progress {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-top: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+    fill: white;
+    font-weight: 800;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+    stroke: var(--accent-color);
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+    stroke: var(--light-bg-color);
+}
