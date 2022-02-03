@@ -2,6 +2,7 @@ import React from 'react';
 import './ProgressCard.css';
 import { IoFootsteps, IoWaterSharp } from 'react-icons/io5';
 import { GiNightSleep, GiWeight } from 'react-icons/gi';
+import { AiTwotoneEdit } from 'react-icons/ai';
 
 export default function ProgressCard({
   name,
@@ -38,6 +39,20 @@ export default function ProgressCard({
             {units}
           </span>
         </div>
+      </div>
+      <div className="card__footer">
+        <div className="card__goals">
+          <p className="text text--small">
+            Your goal:
+          </p>
+          <span className="text text--small text--bold">
+            {count}
+          </span>
+          <span className="text text--small">
+            {units}
+          </span>
+        </div>
+        <AiTwotoneEdit className="text text--big card__button" />
       </div>
     </article>
   );
