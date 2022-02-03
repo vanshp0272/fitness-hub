@@ -7,10 +7,10 @@ function App() {
      <h1>Fitness Hub</h1>
 
       <section className="card-container">
-        <ProgressCard name="First card" cardStyle="card--green" />
-        <ProgressCard name="Second card" cardStyle="card--orange"/>
-        <ProgressCard name="Third card" cardStyle="card--blue" />
-        <ProgressCard name="Fourth card" cardStyle="card--purple"/>
+        <ProgressCard name="Walk" cardStyle="card--green" />
+        <ProgressCard name="Workout" cardStyle="card--orange"/>
+        <ProgressCard name="Water" cardStyle="card--blue" />
+        <ProgressCard name="Sleep" cardStyle="card--purple"/>
       </section>
     </>
   );

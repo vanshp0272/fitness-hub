@@ -4,6 +4,7 @@
     color: white;
 }
 
+/* Color styles */
 .card--green {
     background-color: var(--accent-color);
 }
@@ -19,3 +20,10 @@
 .card--purple {
     background-color: var(--main-color);
 }  
+
+/* Card elements */
+.card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
