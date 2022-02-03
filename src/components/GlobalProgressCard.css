@@ -2,3 +2,25 @@
     width: 100%;
     min-height: 300px;
 }
+
+.card__progress {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    margin-top: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+    fill: white;
+    font-weight: 800;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+    stroke: var(--accent-color);
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+    stroke: var(--light-bg-color);
+}
