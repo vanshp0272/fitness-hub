@@ -81,3 +81,20 @@ section {
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
 }
+
+@media screen and (min-width: 768px) {
+    :root {
+        --margin-size: 6rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    :root {
+        --margin-size: 0;
+    }
+
+    section, header {
+        max-width: 80%;
+        margin: 2em auto;
+    }
+}
