@@ -15,10 +15,10 @@ export default function ProgressCard({
 }) {
 
   const getIcon = () => {
-    if (name === 'Walk') return <IoFootsteps className="text text--med" />;
-    if (name === 'Workout') return <GiWeight className="text text--med" />;
-    if (name === "Water") return <IoWaterSharp className="text text--med" />;
-    if (name === "Sleep") return <GiNightSleep className="text text--med" />;
+    if (name === 'Walk') return <IoFootsteps className="text text--big" />;
+    if (name === 'Workout') return <GiWeight className="text text--big" />;
+    if (name === "Water") return <IoWaterSharp className="text text--big" />;
+    if (name === "Sleep") return <GiNightSleep className="text text--big" />;
     return null;
   }
 
