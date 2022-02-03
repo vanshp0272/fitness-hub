@@ -12,13 +12,13 @@ function App() {
           count={3} units="km" />
         <ProgressCard
           name="Workout" cardStyle="card--orange" cardLabel="Time"
-          count={1.5} units="hrs" />
+          count={[1, 30]} units="hrs" />
         <ProgressCard
           name="Water" cardStyle="card--blue" cardLabel="Glass"
           count={6} units="glasses" />
         <ProgressCard
           name="Sleep" cardStyle="card--purple" cardLabel="Time"
-          count={6.5} units="hrs" />
+          count={[6, 30]} units="hrs" />
       </section>
     </>
   );

@@ -3,6 +3,7 @@ import './ProgressCard.css';
 import { IoFootsteps, IoWaterSharp } from 'react-icons/io5';
 import { GiNightSleep, GiWeight } from 'react-icons/gi';
 import { AiTwotoneEdit } from 'react-icons/ai';
+import { countFormatter } from '../utils';
 
 export default function ProgressCard({
   name,
@@ -33,7 +34,7 @@ export default function ProgressCard({
         </p>
         <div className="card__counter">
           <span className="text text--big text--bold">
-            {count}
+            {countFormatter(count, units)}
           </span>
           <span className="text text--med">
             {units}
