@@ -47,7 +47,7 @@ export default function ProgressCard({
             Your goal:
           </p>
           <span className="text text--small text--bold">
-            {count}
+            {countFormatter(goal, units)}
           </span>
           <span className="text text--small">
             {units}
