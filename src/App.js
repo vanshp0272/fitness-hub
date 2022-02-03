@@ -5,7 +5,9 @@ import "./App.css";
 function App() {
   return (
     <>
-      <h1>Fitness Hub</h1>
+      <header>
+        <h1 className="text text--bold logo">Fitness Hub</h1>
+      </header>
 
       <section className="global-info">
         <GlobalProgressCard />

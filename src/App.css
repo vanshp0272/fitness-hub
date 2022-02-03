@@ -11,6 +11,7 @@
 :root {
     --light-bg-color: #eff5ff;
     --main-color: #8c52ff;
+    --dark-color: #18083a;
     --accent-color: #1ac774;
     --secondary-color: #ff6c21;
     --complement-color: #38b6ff; 
@@ -60,10 +61,19 @@ html {
     text-align: center;
 }
 
+.logo {
+    font-size: 3rem;
+    color: var(--dark-color);
+}
 
 /* Layout styles */
+header {
+    padding: 0 var(--margin-size);
+    margin-top: 1em;
+}
+
 section {
-    margin: 3em var(--margin-size);
+    margin: 2em var(--margin-size) 4em;
 }
 
 .card-container {
