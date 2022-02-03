@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProgressCard.css';
 
 export default function ProgressCard({ name, count, goal, units }) {
   return (

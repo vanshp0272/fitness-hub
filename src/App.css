@@ -15,4 +15,15 @@
     --med-font: 1.8rem;
     --small-font: 1.2rem;
     --tiny-font: 1rem;
+    --margin-size: 1rem;
+}
+
+section {
+    margin: 0 var(--margin-size);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
 }
