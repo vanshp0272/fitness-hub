@@ -49,7 +49,7 @@ export const FitnessDataProvider = ({ children }) => {
   function updateFitnessData(name, { count, goal }) {
     // Delete fitness data with given name 
     setFitnessData(previousData => {
-      previousData.filter(data => data.name !== name);
+      return previousData.filter(data => data.name !== name);
     });
 
     // Create new data item and append to fitnessData
@@ -59,6 +59,7 @@ export const FitnessDataProvider = ({ children }) => {
       count: count,
       goal: goal
     };
+
     setFitnessData(previousData => {
       return [...previousData, newData]
     });

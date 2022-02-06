@@ -2,10 +2,11 @@ import ProgressCard from "./components/ProgressCard";
 import GlobalProgressCard from "./components/GlogalProgressCard";
 import "./App.css";
 import { useFitnessData } from "./context/fitnessDataContext";
+import UpdateModal from "./components/UpdateModal";
 
 function App() {
   const { fitnessData, getFitnessData } = useFitnessData();
-  
+
   return (
     <>
       <header>
@@ -46,6 +47,8 @@ function App() {
           goal={getFitnessData("sleep").goal}
           units="hrs" />
       </section>
+
+      <UpdateModal name="walk"/>
     </>
   );
 }

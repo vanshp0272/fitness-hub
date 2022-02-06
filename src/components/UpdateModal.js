@@ -1,17 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFitnessData } from '../context/fitnessDataContext';
 
 export default function UpdateModal({ name }) {
-  const { updateFitnessData } = useFitnessData();
+  const { getFitnessData, updateFitnessData } = useFitnessData();
+
+  const [count, setCount] = useState(getFitnessData(name).count);
+  const [goal, setGoal] = useState(getFitnessData(name).goal);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const updatedData = { count, goal };
+    updateFitnessData(name, updatedData);
+  }
+
+  function handleChange(event) {
+    if(event.target.id === "count") {
+      setCount(event.target.value);
+    } else if(event.target.id === "goal") {
+      setGoal(event.target.value);
+    }
+  }
 
   return (
     <div className="modal">
       <div className="modal__header">Editing {name}</div>
-      <form>
-        <label for="count">Enter new count:</label>
-        <input type="number" id="count"></input>
-        <label for="goal">Enter new goal:</label>
-        <input type="number" id="goal"></input>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="count">Enter new count:</label>
+        <input
+          type="number"
+          min="0"
+          id="count"
+          value={count}
+          onChange={handleChange} />
+        <label htmlFor="goal">Enter new goal:</label>
+        <input
+          type="number"
+          min="0"
+          id="goal"
+          value={goal}
+          onChange={handleChange} />
         <button>Update</button>
       </form>
     </div>
