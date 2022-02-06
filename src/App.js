@@ -3,9 +3,11 @@ import GlobalProgressCard from "./components/GlogalProgressCard";
 import "./App.css";
 import { useFitnessData } from "./context/fitnessDataContext";
 import UpdateModal from "./components/UpdateModal";
+import { useState } from "react";
 
 function App() {
   const { fitnessData, getFitnessData } = useFitnessData();
+  const [currentModal, setCurrentModal] = useState();
 
   return (
     <>
@@ -24,7 +26,8 @@ function App() {
           cardLabel="Distance"
           count={getFitnessData("walk").count}
           goal={getFitnessData("walk").goal}
-          units="km" />
+          units="km"
+          onClickModal={() => setCurrentModal("walk")} />
         <ProgressCard
           name="Workout"
           cardStyle="card--orange"
@@ -48,7 +51,11 @@ function App() {
           units="hrs" />
       </section>
 
-      <UpdateModal name="walk" color="green"/>
+      <UpdateModal
+        show={currentModal === "walk"}
+        name="walk"
+        color="green"
+        onClose={() => setCurrentModal()} />
     </>
   );
 }

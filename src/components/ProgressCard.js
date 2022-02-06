@@ -11,7 +11,8 @@ export default function ProgressCard({
   cardLabel,
   count,
   goal,
-  units
+  units,
+  onClickModal
 }) {
 
   const getIcon = () => {
@@ -53,7 +54,9 @@ export default function ProgressCard({
             {units}
           </span>
         </div>
-        <AiTwotoneEdit className="text text--big card__button" />
+        <AiTwotoneEdit
+          className="text text--big card__button"
+          onClick={onClickModal} />
       </div>
     </article>
   );
