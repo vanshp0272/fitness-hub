@@ -13,26 +13,26 @@ export const FitnessDataProvider = ({ children }) => {
     {
       name: "walk",
       date: Date.now(),
-      value: 0,
+      count: 0,
       goal: 5
     },
     {
       name: "workout",
       date: Date.now(),
-      value: 0,
-      goal: 2
+      count: [0,0],
+      goal: [2,0]
     },
     {
       name: "water",
       date: Date.now(),
-      value: 0,
+      count: 0,
       goal: 8
     },
     {
       name: "sleep",
       date: Date.now(),
-      value: 0,
-      goal: 8
+      count: [0,0],
+      goal: [8,0]
     }
   ]);
 
@@ -42,7 +42,7 @@ export const FitnessDataProvider = ({ children }) => {
 
   // Get fitness data based on name, i.e. "walk"
   function getFitnessData(name) {
-    return fitnessData.filter(data => data.name === name);
+    return fitnessData.find(data => data.name === name);
   }
 
   // Update count or goal of fitness data with given name
