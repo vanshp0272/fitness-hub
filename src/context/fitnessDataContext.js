@@ -4,7 +4,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 const FitnessDataContext = React.createContext();
 
 export function useFitnessData() {
-  return useContext(fitnessDataContext);
+  return useContext(FitnessDataContext);
 }
 
 export const FitnessDataProvider = ({ children }) => {
@@ -60,7 +60,7 @@ export const FitnessDataProvider = ({ children }) => {
       goal: goal
     };
     setFitnessData(previousData => {
-      [...previousData, newData]
+      return [...previousData, newData]
     });
   }
 
