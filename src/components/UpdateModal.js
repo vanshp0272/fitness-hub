@@ -28,6 +28,7 @@ export default function UpdateModal({ name }) {
         <label htmlFor="count">Enter new count:</label>
         <input
           type="number"
+          step="0.1"
           min="0"
           id="count"
           value={count}
@@ -35,6 +36,7 @@ export default function UpdateModal({ name }) {
         <label htmlFor="goal">Enter new goal:</label>
         <input
           type="number"
+          step="0.1"
           min="0"
           id="goal"
           value={goal}
