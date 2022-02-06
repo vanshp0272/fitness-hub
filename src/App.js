@@ -48,7 +48,7 @@ function App() {
           units="hrs" />
       </section>
 
-      <UpdateModal name="walk"/>
+      <UpdateModal name="walk" color="green"/>
     </>
   );
 }

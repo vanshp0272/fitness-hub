@@ -3,7 +3,7 @@ import { useFitnessData } from '../context/fitnessDataContext';
 import { AiOutlineClose } from 'react-icons/ai';
 import './UpdateModal.css';
 
-export default function UpdateModal({ name }) {
+export default function UpdateModal({ name, color }) {
   const { getFitnessData, updateFitnessData } = useFitnessData();
 
   const [count, setCount] = useState(getFitnessData(name).count);
@@ -24,33 +24,39 @@ export default function UpdateModal({ name }) {
   }
 
   return (
-    <div className="modal">
+    <div className={`modal modal--${color}`}>
       <div className="modal__header">
-        <span className="text text--med text--bold">Editing {name}</span>
+        <span className="text text--big text--bold">Editing {name}</span>
         <AiOutlineClose className="text text--med modal__close" />
       </div>
       <form className="modal__body" onSubmit={handleSubmit}>
-        <label htmlFor="count" className="text text--dark text--small">
-          Enter new count:
-        </label>
-        <input
-          type="number"
-          step="0.1"
-          min="0"
-          id="count"
-          value={count}
-          onChange={handleChange} />
-        <label htmlFor="goal" className="text text--dark text--small">
-          Enter new goal:
-        </label>
-        <input
-          type="number"
-          step="0.1"
-          min="0"
-          id="goal"
-          value={goal}
-          onChange={handleChange} />
-        <button className="btn btn--green">Update</button>
+        <div className="modal__row">
+          <label htmlFor="count" className="text text--dark text--med">
+            Enter new count:
+          </label>
+          <input
+            className="modal__input"
+            type="number"
+            step="0.1"
+            min="0"
+            id="count"
+            value={count}
+            onChange={handleChange} />
+        </div>
+        <div className="modal__row">
+          <label htmlFor="goal" className="text text--dark text--med">
+            Enter new goal:
+          </label>
+          <input
+            className="modal__input"
+            type="number"
+            step="0.1"
+            min="0"
+            id="goal"
+            value={goal}
+            onChange={handleChange} />
+        </div>
+        <button className={`btn btn--${color}`}>Update</button>
       </form>
     </div>
   );

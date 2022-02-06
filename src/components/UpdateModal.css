@@ -16,10 +16,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--accent-color);
     color: white;
     padding: 1em 2em;
     border-radius: 10px 10px 0 0 ;
+}
+
+.modal--green .modal__header {
+    background-color: var(--accent-color);
 }
 
 .modal__close {
@@ -30,4 +33,14 @@
 
 .modal__body {
     padding: 1em 2em;
+}
+
+.modal__row {
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__input {
+    font-size: 1.2rem;
 }
