@@ -1,0 +1,33 @@
+:root {
+    --modal-padding: 3em;
+}
+
+.modal {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--light-bg-color);
+    border-radius: 10px;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 1em 2em;
+    border-radius: 10px 10px 0 0 ;
+}
+
+.modal__close {
+    cursor: pointer;
+    fill: white;
+    stroke-width: 5%;
+}
+
+.modal__body {
+    padding: 1em 2em;
+}

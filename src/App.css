@@ -102,3 +102,34 @@ section {
         margin: 2em auto;
     }
 }
+
+/* Button styles */
+.btn {
+    border: none;
+    cursor: pointer;
+    padding: .2em .5em;
+    color: white;
+    border-radius: 5px;
+    font-size: var(--small-font);
+    transition: opacity .2s ease-in-out;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.btn--green {
+    background-color: var(--accent-color);;
+}
+
+.btn--purple {
+    background-color: var(--main-color);
+}   
+
+.btn--blue {
+    background-color: var(--complement-color);
+}
+
+.btn--orange {
+    background-color: var(--secondary-color);
+}

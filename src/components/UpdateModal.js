@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useFitnessData } from '../context/fitnessDataContext';
+import { AiOutlineClose } from 'react-icons/ai';
+import './UpdateModal.css';
 
 export default function UpdateModal({ name }) {
   const { getFitnessData, updateFitnessData } = useFitnessData();
@@ -14,18 +16,23 @@ export default function UpdateModal({ name }) {
   }
 
   function handleChange(event) {
-    if(event.target.id === "count") {
+    if (event.target.id === "count") {
       setCount(event.target.value);
-    } else if(event.target.id === "goal") {
+    } else if (event.target.id === "goal") {
       setGoal(event.target.value);
     }
   }
 
   return (
     <div className="modal">
-      <div className="modal__header">Editing {name}</div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="count">Enter new count:</label>
+      <div className="modal__header">
+        <span className="text text--med text--bold">Editing {name}</span>
+        <AiOutlineClose className="text text--med modal__close" />
+      </div>
+      <form className="modal__body" onSubmit={handleSubmit}>
+        <label htmlFor="count" className="text text--dark text--small">
+          Enter new count:
+        </label>
         <input
           type="number"
           step="0.1"
@@ -33,7 +40,9 @@ export default function UpdateModal({ name }) {
           id="count"
           value={count}
           onChange={handleChange} />
-        <label htmlFor="goal">Enter new goal:</label>
+        <label htmlFor="goal" className="text text--dark text--small">
+          Enter new goal:
+        </label>
         <input
           type="number"
           step="0.1"
@@ -41,7 +50,7 @@ export default function UpdateModal({ name }) {
           id="goal"
           value={goal}
           onChange={handleChange} />
-        <button>Update</button>
+        <button className="btn btn--green">Update</button>
       </form>
     </div>
   );
