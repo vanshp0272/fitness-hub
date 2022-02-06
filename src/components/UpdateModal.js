@@ -24,11 +24,9 @@ export default function UpdateModal({ show, name, color, onClose }) {
     }
   }
 
-  if (!show) return null;
-
   return (
     <>
-      <div className={`modal modal--${color}`}>
+      <div className={`modal modal--${color} ${show ? 'modal--active' : ''}`}>
         <div className="modal__header">
           <span className="text text--big text--bold">Editing {name}</span>
           <AiOutlineClose
@@ -65,7 +63,10 @@ export default function UpdateModal({ show, name, color, onClose }) {
           <button className={`btn btn--${color}`}>Update</button>
         </form>
       </div>
-      <div className="overlay"></div>
+      <div
+        className={`overlay ${show ? 'overlay--active' : ''}`}
+        onClick={onClose}
+      ></div>
     </>
   );
 }

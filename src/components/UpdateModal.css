@@ -7,10 +7,15 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
     background-color: var(--light-bg-color);
     border-radius: 10px;
     z-index: 10;
+    transition: transform .2s ease-in-out;
+}
+
+.modal.modal--active {
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .modal__header {
@@ -53,5 +58,9 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.5);
-    
+    display: none;
+}
+
+.overlay.overlay--active {
+    display: block;
 }
