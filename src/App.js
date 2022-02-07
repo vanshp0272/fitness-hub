@@ -34,27 +34,51 @@ function App() {
           cardLabel="Time"
           count={getFitnessData("workout").count}
           goal={getFitnessData("workout").goal}
-          units="hrs" />
+          units="hrs"
+          onClickModal={() => setCurrentModal("workout")} />
         <ProgressCard
           name="Water"
           cardStyle="card--blue"
           cardLabel="Glass"
           count={getFitnessData("water").count}
           goal={getFitnessData("water").goal}
-          units="glasses" />
+          units="glasses"
+          onClickModal={() => setCurrentModal("water")} />
         <ProgressCard
           name="Sleep"
           cardStyle="card--purple"
           cardLabel="Time"
           count={getFitnessData("sleep").count}
           goal={getFitnessData("sleep").goal}
-          units="hrs" />
+          units="hrs"
+          onClickModal={() => setCurrentModal("sleep") } />
       </section>
 
       <UpdateModal
         show={currentModal === "walk"}
         name="walk"
         color="green"
+        step={0.1}
+        onClose={() => setCurrentModal()} />
+      <UpdateModal
+        show={currentModal === "water"}
+        name="water"
+        color="blue"
+        step={1}
+        onClose={() => setCurrentModal()} />
+      <UpdateModal
+        show={currentModal === "workout"}
+        name="workout"
+        color="orange"
+        step={1}
+        doubleInput={true}
+        onClose={() => setCurrentModal()} />
+      <UpdateModal
+        show={currentModal === "sleep"}
+        name="sleep"
+        color="purple"
+        step={1}
+        doubleInput={true}
         onClose={() => setCurrentModal()} />
     </>
   );

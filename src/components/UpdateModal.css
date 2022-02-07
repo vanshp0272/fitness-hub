@@ -31,6 +31,18 @@
     background-color: var(--accent-color);
 }
 
+.modal--blue .modal__header {
+    background-color: var(--complement-color);
+}
+
+.modal--orange .modal__header {
+    background-color: var(--secondary-color);
+}
+
+.modal--purple .modal__header {
+    background-color: var(--main-color);
+}
+
 .modal__close {
     cursor: pointer;
     fill: white;
@@ -44,11 +56,15 @@
 .modal__row {
     margin-bottom: 1em;
     display: flex;
-    flex-direction: column;
+}
+
+.modal__input-container {
+    flex: 1;
 }
 
 .modal__input {
     font-size: 1.2rem;
+    width: 100%;
 }
 
 .overlay {
