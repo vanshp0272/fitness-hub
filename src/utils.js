@@ -1,5 +1,6 @@
 export const countFormatter = (count, units) => {
   if (units === "km") {
+    count = parseFloat(count);
     return count.toFixed(2);
   }
   else if (units === "hrs") {

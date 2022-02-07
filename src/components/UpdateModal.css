@@ -1,0 +1,82 @@
+:root {
+    --modal-padding: 3em;
+}
+
+.modal {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: var(--light-bg-color);
+    border-radius: 10px;
+    z-index: 10;
+    transition: transform .2s ease-in-out;
+}
+
+.modal.modal--active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 1em 2em;
+    border-radius: 10px 10px 0 0 ;
+}
+
+.modal--green .modal__header {
+    background-color: var(--accent-color);
+}
+
+.modal--blue .modal__header {
+    background-color: var(--complement-color);
+}
+
+.modal--orange .modal__header {
+    background-color: var(--secondary-color);
+}
+
+.modal--purple .modal__header {
+    background-color: var(--main-color);
+}
+
+.modal__close {
+    cursor: pointer;
+    fill: white;
+    stroke-width: 5%;
+}
+
+.modal__body {
+    padding: 1em 2em;
+}
+
+.modal__row {
+    margin-bottom: 1em;
+    display: flex;
+}
+
+.modal__input-container {
+    flex: 1;
+}
+
+.modal__input {
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.overlay.overlay--active {
+    display: block;
+}

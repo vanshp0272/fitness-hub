@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -50,7 +50,7 @@ html {
 }
 
 .text--bold {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .text--italic {
@@ -101,4 +101,35 @@ section {
         max-width: 80%;
         margin: 2em auto;
     }
+}
+
+/* Button styles */
+.btn {
+    border: none;
+    cursor: pointer;
+    padding: .2em .5em;
+    color: white;
+    border-radius: 5px;
+    font-size: var(--med-font);
+    transition: opacity .2s ease-in-out;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.btn--green {
+    background-color: var(--accent-color);;
+}
+
+.btn--purple {
+    background-color: var(--main-color);
+}   
+
+.btn--blue {
+    background-color: var(--complement-color);
+}
+
+.btn--orange {
+    background-color: var(--secondary-color);
 }
