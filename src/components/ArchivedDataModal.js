@@ -12,21 +12,6 @@ export default function ArchivedDataModal({ show }) {
       <div className="modal-archived__card-container">
         <ArchivedProgressCard />
         <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
-        <ArchivedProgressCard />
       </div>
     </div >
   )
