@@ -12,14 +12,15 @@ function App() {
     getDailyProgress,
     resetDailyData } = useFitnessData();
   const [currentModal, setCurrentModal] = useState();
+  const [archivedModalActive, setArchivedModalActive] = useState(false);
 
   // Reset daily data if day changed
   useEffect(() => {
     // Compare current date to date in some data object
-    const prevDate = new Date(getFitnessData("walk").date);    
+    const prevDate = new Date(getFitnessData("walk").date);
     const currentDate = new Date();
 
-    if(prevDate.getDate() !== currentDate.getDate()) {
+    if (prevDate.getDate() !== currentDate.getDate()) {
       resetDailyData();
     }
   }, []);
@@ -28,6 +29,9 @@ function App() {
     <>
       <header>
         <h1 className="text text--bold logo">Fitness Hub</h1>
+        <button onClick={() => setArchivedModalActive(!archivedModalActive)}>
+          Show archived
+        </button>
       </header>
 
       <section className="global-info">
@@ -96,7 +100,7 @@ function App() {
         doubleInput={true}
         onClose={() => setCurrentModal()} />
 
-      <ArchivedDataModal />
+      <ArchivedDataModal show={archivedModalActive} />
     </>
   );
 }

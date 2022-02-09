@@ -6,6 +6,12 @@
     top: 6rem;
     left: 0;
     border-radius: 40px 40px 0 0;
+    transform: translateX(-100%);
+    transition: .2s ease-in-out;
+}
+
+.modal-archived.modal-archived--active {
+    transform: translateX(0);
 }
 
 .modal-archived__title {

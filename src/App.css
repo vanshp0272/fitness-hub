@@ -70,6 +70,9 @@ html {
 header {
     padding: 0 var(--margin-size);
     margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 section {
