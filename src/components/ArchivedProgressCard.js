@@ -1,5 +1,10 @@
 import React from 'react';
+import './ArchivedProgressCard.css'
 
 export default function ArchivedProgressCard() {
-  return <div></div>;
+  return (
+    <div className="archived-card">
+      This is an archived card
+    </div>
+  );
 }

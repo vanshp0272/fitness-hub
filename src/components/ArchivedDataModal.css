@@ -27,3 +27,7 @@
     height: 2px;
     background-color: var(--main-color);
 }
+
+.modal-archived__card-container {
+    margin: 1rem 1.5rem;   
+}
