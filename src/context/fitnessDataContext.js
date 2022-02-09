@@ -9,6 +9,7 @@ export function useFitnessData() {
 
 export const FitnessDataProvider = ({ children }) => {
   // Set fitnessData to local storage value, else to default data
+  const [archivedData, setArchivedData] = useLocalStorage("archivedData", []);
   const [fitnessData, setFitnessData] = useLocalStorage("fitnessData", [
     {
       name: "walk",
@@ -45,6 +46,10 @@ export const FitnessDataProvider = ({ children }) => {
     const workoutGoal = getFitnessData("workout").goal;
     const waterGoal = getFitnessData("water").goal;
     const sleepGoal = getFitnessData("sleep").goal;
+
+    // Generate an archive
+    const globalProgress = getDailyProgress();
+    archiveData(globalProgress);
 
     deleteFitnessData("walk");
     deleteFitnessData("workout");
@@ -126,8 +131,29 @@ export const FitnessDataProvider = ({ children }) => {
     return 0.25 * (walkProgress + waterProgress + workoutProgress + sleepProgress);
   }
 
+  // Create an archive object and save it to local storage
+  function archiveData(globalProgress) {
+    const newArchive = {
+      date: getFitnessData("walk").date,
+      walkCount: getFitnessData("walk").count,
+      walkGoal: getFitnessData("walk").goal,
+      workoutCount: getFitnessData("workout").count,
+      workoutGoal: getFitnessData("workout").goal,
+      waterCount: getFitnessData("water").count,
+      waterGoal: getFitnessData("water").goal,
+      sleepCount: getFitnessData("sleep").count,
+      sleepGoal: getFitnessData("sleep").goal,
+      globalProgress: globalProgress
+    };
+
+    setArchivedData(previousData => {
+      return [...previousData, newArchive];
+    });
+  }
+
   return <FitnessDataContext.Provider value={{
     fitnessData,
+    archivedData,
     getFitnessData,
     updateFitnessData,
     getDailyProgress,
