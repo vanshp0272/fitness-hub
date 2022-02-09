@@ -16,6 +16,17 @@ export default function ArchivedDataModal({ show }) {
         <ArchivedProgressCard />
         <ArchivedProgressCard />
         <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
+        <ArchivedProgressCard />
       </div>
     </div >
   )
