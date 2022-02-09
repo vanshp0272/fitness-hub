@@ -6,7 +6,7 @@ import UpdateModal from "./components/UpdateModal";
 import { useState } from "react";
 
 function App() {
-  const { fitnessData, getFitnessData } = useFitnessData();
+  const { fitnessData, getFitnessData, getDailyProgress } = useFitnessData();
   const [currentModal, setCurrentModal] = useState();
 
   return (
@@ -16,7 +16,7 @@ function App() {
       </header>
 
       <section className="global-info">
-        <GlobalProgressCard />
+        <GlobalProgressCard progress={getDailyProgress()}/>
       </section>
 
       <section className="card-container">

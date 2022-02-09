@@ -4,11 +4,10 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import './GlobalProgressCard.css';
 
-export default function GlogalProgressCard() {
+export default function GlogalProgressCard({ progress }) {
 
   const getGlobalProgress = () => {
-    // TODO: Make this function dynamic when implementing logic
-    return 75; 
+    return Math.round(100 * progress); 
   }
 
   return (

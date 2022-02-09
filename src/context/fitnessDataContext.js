@@ -65,10 +65,30 @@ export const FitnessDataProvider = ({ children }) => {
     });
   }
 
+  // Return the global progress combining each card data
+  function getDailyProgress() {
+    const walkData = getFitnessData("walk");
+    const workoutData = getFitnessData("workout");
+    const sleepData = getFitnessData("sleep");
+    const waterData = getFitnessData("water");
+
+    const walkProgress = walkData.count / walkData.goal;
+    const waterProgress = waterData.count / waterData.goal;
+    const workoutProgress = 
+      (60*workoutData.count[0] + workoutData.count[1]) 
+      / (60*workoutData.goal[0] + workoutData.goal[1]); 
+    const sleepProgress =
+      (60*sleepData.count[0] + sleepData.count[1]) 
+      / (60*sleepData.goal[0] + sleepData.goal[1]); 
+
+    return 0.25 * (walkProgress+waterProgress+workoutProgress+sleepProgress);
+  }
+
   return <FitnessDataContext.Provider value={{
     fitnessData,
     getFitnessData,
-    updateFitnessData
+    updateFitnessData,
+    getDailyProgress
   }}>
     {children}
   </FitnessDataContext.Provider>
