@@ -43,5 +43,6 @@
 @media screen and (min-width: 1024px) {
     .modal-archived {
         top: 8rem;
+        min-height: calc(100vh - 8rem);
     }
 }
