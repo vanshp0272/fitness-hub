@@ -5,6 +5,7 @@ import { useFitnessData } from "./context/fitnessDataContext";
 import UpdateModal from "./components/UpdateModal";
 import { useEffect, useState } from "react";
 import ArchivedDataModal from "./components/ArchivedDataModal";
+import { ImStatsBars } from 'react-icons/im';
 
 function App() {
   const {
@@ -29,9 +30,9 @@ function App() {
     <>
       <header>
         <h1 className="text text--bold logo">Fitness Hub</h1>
-        <button onClick={() => setArchivedModalActive(!archivedModalActive)}>
-          Show archived
-        </button>
+        <ImStatsBars
+          className="stats-btn"
+          onClick={() => setArchivedModalActive(!archivedModalActive)} />
       </header>
 
       <section className="global-info">
