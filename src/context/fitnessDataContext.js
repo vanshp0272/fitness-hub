@@ -117,11 +117,11 @@ export const FitnessDataProvider = ({ children }) => {
     const walkProgress = walkData.count / walkData.goal;
     const waterProgress = waterData.count / waterData.goal;
     const workoutProgress =
-      (60 * workoutData.count[0] + workoutData.count[1])
-      / (60 * workoutData.goal[0] + workoutData.goal[1]);
+      (60 * parseInt(workoutData.count[0]) + parseInt(workoutData.count[1]))
+      / (60 * parseInt(workoutData.goal[0]) + parseInt(workoutData.goal[1]));
     const sleepProgress =
-      (60 * sleepData.count[0] + sleepData.count[1])
-      / (60 * sleepData.goal[0] + sleepData.goal[1]);
+      (60 * parseInt(sleepData.count[0]) + parseInt(sleepData.count[1]))
+      / (60 * parseInt(sleepData.goal[0]) + parseInt(sleepData.goal[1]));
 
     return 0.25 * (walkProgress + waterProgress + workoutProgress + sleepProgress);
   }
