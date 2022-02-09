@@ -3,11 +3,25 @@ import GlobalProgressCard from "./components/GlogalProgressCard";
 import "./App.css";
 import { useFitnessData } from "./context/fitnessDataContext";
 import UpdateModal from "./components/UpdateModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const { fitnessData, getFitnessData, getDailyProgress } = useFitnessData();
+  const {
+    getFitnessData,
+    getDailyProgress,
+    resetDailyData } = useFitnessData();
   const [currentModal, setCurrentModal] = useState();
+
+  // Reset daily data if day changed
+  useEffect(() => {
+    // Compare current date to date in some data object
+    const prevDate = new Date(getFitnessData("walk").date);    
+    const currentDate = new Date();
+
+    if(prevDate.getDate() !== currentDate.getDate()) {
+      resetDailyData();
+    }
+  }, []);
 
   return (
     <>
@@ -16,7 +30,7 @@ function App() {
       </header>
 
       <section className="global-info">
-        <GlobalProgressCard progress={getDailyProgress()}/>
+        <GlobalProgressCard progress={getDailyProgress()} />
       </section>
 
       <section className="card-container">
@@ -51,7 +65,7 @@ function App() {
           count={getFitnessData("sleep").count}
           goal={getFitnessData("sleep").goal}
           units="hrs"
-          onClickModal={() => setCurrentModal("sleep") } />
+          onClickModal={() => setCurrentModal("sleep")} />
       </section>
 
       <UpdateModal
