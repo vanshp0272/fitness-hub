@@ -4,6 +4,7 @@ import "./App.css";
 import { useFitnessData } from "./context/fitnessDataContext";
 import UpdateModal from "./components/UpdateModal";
 import { useEffect, useState } from "react";
+import ArchivedDataModal from "./components/ArchivedDataModal";
 
 function App() {
   const {
@@ -94,6 +95,8 @@ function App() {
         step={1}
         doubleInput={true}
         onClose={() => setCurrentModal()} />
+
+      <ArchivedDataModal />
     </>
   );
 }
