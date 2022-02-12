@@ -18,7 +18,7 @@ export default function ArchivedDataModal({ show }) {
           key={data.date}
           date={data.date}
           walkCount={data.walkCount} walkGoal={data.walkCount}
-          workoutCount={data.workoutCount} workoutCount={data.workoutGoal}
+          workoutCount={data.workoutCount} workoutGoal={data.workoutGoal}
           waterCount={data.waterCount} waterGoal={data.waterGoal}
           sleepCount={data.sleepCount} sleepGoal={data.sleepGoal}
           globalProgress={data.globalProgress}
