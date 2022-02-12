@@ -141,7 +141,6 @@ export const FitnessDataProvider = ({ children }) => {
     });    
 
     const progress = progressArray.reduce((total, num) => total += num, 0);
-
     return progress * 0.25;
   }
 
@@ -149,16 +148,13 @@ export const FitnessDataProvider = ({ children }) => {
   function archiveData(globalProgress) {
     const newArchive = {
       date: getFitnessData("walk").date,
-      walkCount: getFitnessData("walk").count,
-      walkGoal: getFitnessData("walk").goal,
-      workoutCount: getFitnessData("workout").count,
-      workoutGoal: getFitnessData("workout").goal,
-      waterCount: getFitnessData("water").count,
-      waterGoal: getFitnessData("water").goal,
-      sleepCount: getFitnessData("sleep").count,
-      sleepGoal: getFitnessData("sleep").goal,
       globalProgress: globalProgress
     };
+    cardInformation.forEach(card => {
+      newArchive[card.name] = {};
+      newArchive[card.name].count = getFitnessData(card.name).count;
+      newArchive[card.name].goal = getFitnessData(card.name).goal;
+    });
 
     setArchivedData(previousData => {
       return [...previousData, newArchive];
