@@ -6,6 +6,7 @@ import UpdateModal from "./components/UpdateModal";
 import { useEffect, useState } from "react";
 import ArchivedDataModal from "./components/ArchivedDataModal";
 import { ImStatsBars } from 'react-icons/im';
+import { cardInformation } from './context/fitnessDataContext';
 
 function App() {
   const {
@@ -40,67 +41,30 @@ function App() {
       </section>
 
       <section className="card-container">
-        <ProgressCard
-          name="Walk"
-          cardStyle="card--green"
-          cardLabel="Distance"
-          count={getFitnessData("walk").count}
-          goal={getFitnessData("walk").goal}
-          units="km"
-          onClickModal={() => setCurrentModal("walk")} />
-        <ProgressCard
-          name="Workout"
-          cardStyle="card--orange"
-          cardLabel="Time"
-          count={getFitnessData("workout").count}
-          goal={getFitnessData("workout").goal}
-          units="hrs"
-          onClickModal={() => setCurrentModal("workout")} />
-        <ProgressCard
-          name="Water"
-          cardStyle="card--blue"
-          cardLabel="Glass"
-          count={getFitnessData("water").count}
-          goal={getFitnessData("water").goal}
-          units="glasses"
-          onClickModal={() => setCurrentModal("water")} />
-        <ProgressCard
-          name="Sleep"
-          cardStyle="card--purple"
-          cardLabel="Time"
-          count={getFitnessData("sleep").count}
-          goal={getFitnessData("sleep").goal}
-          units="hrs"
-          onClickModal={() => setCurrentModal("sleep")} />
+        {cardInformation.map(card => (
+          <ProgressCard
+            key={card.name}
+            name={card.name.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase())}
+            cardStyle={`card--${card.color}`}
+            cardLabel={card.measure.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase())}
+            count={getFitnessData(card.name).count}
+            goal={getFitnessData(card.name).goal}
+            units={card.units}
+            onClickModal={() => setCurrentModal(card.name)}
+          />
+        ))}
       </section>
 
-      <UpdateModal
-        show={currentModal === "walk"}
-        name="walk"
-        color="green"
-        step={0.1}
-        onClose={() => setCurrentModal()} />
-      <UpdateModal
-        show={currentModal === "water"}
-        name="water"
-        color="blue"
-        step={1}
-        onClose={() => setCurrentModal()} />
-      <UpdateModal
-        show={currentModal === "workout"}
-        name="workout"
-        color="orange"
-        step={1}
-        doubleInput={true}
-        onClose={() => setCurrentModal()} />
-      <UpdateModal
-        show={currentModal === "sleep"}
-        name="sleep"
-        color="purple"
-        step={1}
-        doubleInput={true}
-        onClose={() => setCurrentModal()} />
-
+      {cardInformation.map(card => (
+        <UpdateModal
+          key={`${card.name}-modal`}
+          show={currentModal === card.name}
+          name={card.name}
+          color={card.color}
+          step={card.unitStep}
+          doubleInput={card.doubleInput}
+          onClose={() => setCurrentModal()} />
+      ))}
       <ArchivedDataModal show={archivedModalActive} />
     </>
   );

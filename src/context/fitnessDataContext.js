@@ -7,35 +7,61 @@ export function useFitnessData() {
   return useContext(FitnessDataContext);
 }
 
+// Array of objects describing each type of fitness card
+export const cardInformation = [
+  {
+    name: "walk",
+    color: "green",
+    units: "km",
+    unitStep: 0.1,
+    measure: "distance",
+    defaultGoal: 5,
+    doubleInput: false
+  },
+  {
+    name: "workout",
+    color: "orange",
+    units: "hrs",
+    unitStep: 1,
+    measure: "time",
+    defaultGoal: [2,0],
+    doubleInput: true
+  },
+  {
+    name: "water",
+    color: "blue",
+    units: "glasses",
+    unitStep: 1,
+    measure: "glass",
+    defaultGoal: 8,
+    doubleInput: false
+  },
+  {
+    name: "sleep",
+    color: "purple",
+    units: "hrs",
+    unitStep: 1,
+    measure: "time",
+    defaultGoal: [8,0],
+    doubleInput: true
+  }
+];
+
 export const FitnessDataProvider = ({ children }) => {
-  // Set fitnessData to local storage value, else to default data
+  // Get archived data
   const [archivedData, setArchivedData] = useLocalStorage("archivedData", []);
-  const [fitnessData, setFitnessData] = useLocalStorage("fitnessData", [
-    {
-      name: "walk",
-      date: new Date(),
-      count: 0,
-      goal: 5
-    },
-    {
-      name: "workout",
-      date: new Date(),
-      count: [0, 0],
-      goal: [2, 0]
-    },
-    {
-      name: "water",
-      date: new Date(),
-      count: 0,
-      goal: 8
-    },
-    {
-      name: "sleep",
-      date: new Date(),
-      count: [0, 0],
-      goal: [8, 0]
-    }
-  ]);
+
+  // Set fitnessData to local storage value, else to default data
+  const defaultData = [];
+  cardInformation.forEach(cardData => {
+    const card = {};
+    card.name = cardData.name;
+    card.date = new Date();
+    card.count = cardData.doubleInput ? [0,0] : 0;
+    card.goal = cardData.defaultGoal;
+    defaultData.push(card);
+  });
+  const [fitnessData, setFitnessData] = useLocalStorage("fitnessData", defaultData);
 
   // === FUNCTIONS TO CREATE, READ AND UPDATE FITNESS DATA ===
 
