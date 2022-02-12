@@ -17,10 +17,10 @@ export default function ArchivedDataModal({ show }) {
           <ArchivedProgressCard 
           key={data.date}
           date={data.date}
-          walkCount={data.walkCount} walkGoal={data.walkCount}
-          workoutCount={data.workoutCount} workoutGoal={data.workoutGoal}
-          waterCount={data.waterCount} waterGoal={data.waterGoal}
-          sleepCount={data.sleepCount} sleepGoal={data.sleepGoal}
+          walkCount={data.walk.count} walkGoal={data.walk.goal}
+          workoutCount={data.workout.count} workoutGoal={data.workout.goal}
+          waterCount={data.water.count} waterGoal={data.water.goal}
+          sleepCount={data.sleep.count} sleepGoal={data.sleep.goal}
           globalProgress={data.globalProgress}
           />
         ))}

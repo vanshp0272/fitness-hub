@@ -38,11 +38,19 @@
 
 .modal-archived__card-container {
     margin: 1rem 1.5rem;   
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
 }
 
 @media screen and (min-width: 1024px) {
     .modal-archived {
         top: 8rem;
         min-height: calc(100vh - 8rem);
+        padding: 0 10rem;
+    }
+
+    .modal-archived__card-container {
+        gap: 4em;
     }
 }
