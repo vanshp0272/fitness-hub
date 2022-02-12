@@ -59,6 +59,7 @@ export const FitnessDataProvider = ({ children }) => {
     card.date = new Date();
     card.count = cardData.doubleInput ? [0,0] : 0;
     card.goal = cardData.defaultGoal;
+
     defaultData.push(card);
   });
   const [fitnessData, setFitnessData] = useLocalStorage("fitnessData", defaultData);
@@ -68,46 +69,32 @@ export const FitnessDataProvider = ({ children }) => {
   // Reset counters to 0 each day
   function resetDailyData() {
     // Get previous goals to reuse them
-    const walkGoal = getFitnessData("walk").goal;
-    const workoutGoal = getFitnessData("workout").goal;
-    const waterGoal = getFitnessData("water").goal;
-    const sleepGoal = getFitnessData("sleep").goal;
+    const previousGoals = {};
+    cardInformation.forEach(card => {
+      previousGoals[card.name] = getFitnessData(card.name).goal;
+    });
 
     // Generate an archive
     const globalProgress = getDailyProgress();
     archiveData(globalProgress);
 
-    deleteFitnessData("walk");
-    deleteFitnessData("workout");
-    deleteFitnessData("water");
-    deleteFitnessData("sleep");
+    // Delete data
+    cardInformation.forEach(card => {
+      deleteFitnessData(card.name);
+    });
 
-    setFitnessData([
-      {
-        name: "walk",
-        date: new Date(),
-        count: 0,
-        goal: walkGoal
-      },
-      {
-        name: "workout",
-        date: new Date(),
-        count: [0, 0],
-        goal: workoutGoal
-      },
-      {
-        name: "water",
-        date: new Date(),
-        count: 0,
-        goal: waterGoal
-      },
-      {
-        name: "sleep",
-        date: new Date(),
-        count: [0, 0],
-        goal: sleepGoal
-      }
-    ]);
+    // Create new data object and set it as current fitness data
+    const newDataArray = [];
+    cardInformation.forEach(card => {
+      const newFitnessData = {};
+      newFitnessData.name = card.name;
+      newFitnessData.date = new Date();
+      newFitnessData.count = card.doubleInput ? [0,0] : 0;
+      newFitnessData.goal = previousGoals[card.name];
+      
+      newDataArray.push(newFitnessData);
+    })
+    setFitnessData(newDataArray);
   }
 
   // Get fitness data based on name, i.e. "walk"
@@ -140,21 +127,22 @@ export const FitnessDataProvider = ({ children }) => {
 
   // Return the global progress combining each card data
   function getDailyProgress() {
-    const walkData = getFitnessData("walk");
-    const workoutData = getFitnessData("workout");
-    const sleepData = getFitnessData("sleep");
-    const waterData = getFitnessData("water");
+    const progressArray = []; // Array to store each category's progress
+    cardInformation.forEach(card => {
+      const cardFitnessData = getFitnessData(card.name);
+      const cardFitnessProgress = card.doubleInput ? (
+        (60 * parseInt(cardFitnessData.count[0]) + parseInt(cardFitnessData.count[1]))
+        / (60 * parseInt(cardFitnessData.goal[0]) + parseInt(cardFitnessData.goal[1]))
+      ) : (
+        cardFitnessData.count / cardFitnessData.goal
+      );
 
-    const walkProgress = walkData.count / walkData.goal;
-    const waterProgress = waterData.count / waterData.goal;
-    const workoutProgress =
-      (60 * parseInt(workoutData.count[0]) + parseInt(workoutData.count[1]))
-      / (60 * parseInt(workoutData.goal[0]) + parseInt(workoutData.goal[1]));
-    const sleepProgress =
-      (60 * parseInt(sleepData.count[0]) + parseInt(sleepData.count[1]))
-      / (60 * parseInt(sleepData.goal[0]) + parseInt(sleepData.goal[1]));
+      progressArray.push(cardFitnessProgress);
+    });    
 
-    return 0.25 * (walkProgress + waterProgress + workoutProgress + sleepProgress);
+    const progress = progressArray.reduce((total, num) => total += num, 0);
+
+    return progress * 0.25;
   }
 
   // Create an archive object and save it to local storage
