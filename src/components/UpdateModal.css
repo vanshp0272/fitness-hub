@@ -57,6 +57,7 @@
 .modal__row {
     margin-bottom: 1em;
     display: flex;
+    gap: 1em;
 }
 
 .modal__input-container {

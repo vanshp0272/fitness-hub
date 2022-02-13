@@ -71,7 +71,7 @@ export default function UpdateModal({
               <label
                 htmlFor={doubleInput ? 'count-1' : 'count'}
                 className="text text--dark text--med">
-                Enter new count:
+                Enter new count{doubleInput ? ' (hrs)' : ''}:
               </label>
               <input
                 className="modal__input"
@@ -86,7 +86,7 @@ export default function UpdateModal({
               <label
                 htmlFor='count-2'
                 className="text text--dark text--med">
-                Enter new count:
+                Enter new count (min):
               </label>
               <input
                 className="modal__input"
@@ -103,13 +103,13 @@ export default function UpdateModal({
               <label
                 htmlFor={doubleInput ? 'goal-1' : 'goal'}
                 className="text text--dark text--med">
-                Enter new goal:
+                Enter new goal {doubleInput ? '(hrs)' : ''}:
               </label>
               <input
                 className="modal__input"
                 type="number"
                 step={step}
-                min="0"
+                min={doubleInput ? '0' : step}
                 id={doubleInput ? 'goal-1' : 'goal'}
                 value={doubleInput ? goal[0] : goal}
                 onChange={doubleInput ? handleDoubleChange : handleChange} />
@@ -118,13 +118,13 @@ export default function UpdateModal({
               <label
                 htmlFor='goal-2'
                 className="text text--dark text--med">
-                Enter new goal:
+                Enter new goal (min):
               </label>
               <input
                 className="modal__input"
                 type="number"
                 step={step}
-                min="0"
+                min={goal[0] === '0' ? '1' : '0'}
                 id='goal-2'
                 value={goal[1]}
                 onChange={handleDoubleChange} />
