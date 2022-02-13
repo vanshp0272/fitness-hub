@@ -31,7 +31,7 @@
 }
 
 .CircularProgressbar.archived-card__progress .CircularProgressbar-trail {
-    stroke: var(--main-color);
+    stroke: #cfd3da;
 }
 
 .archived-card__date {

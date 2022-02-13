@@ -4,6 +4,7 @@
 
 .modal {
     width: 80%;
+    max-width: 700px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -56,6 +57,7 @@
 .modal__row {
     margin-bottom: 1em;
     display: flex;
+    gap: 1em;
 }
 
 .modal__input-container {

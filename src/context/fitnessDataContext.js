@@ -130,12 +130,14 @@ export const FitnessDataProvider = ({ children }) => {
     const progressArray = []; // Array to store each category's progress
     cardInformation.forEach(card => {
       const cardFitnessData = getFitnessData(card.name);
-      const cardFitnessProgress = card.doubleInput ? (
+      let cardFitnessProgress = card.doubleInput ? (
         (60 * parseInt(cardFitnessData.count[0]) + parseInt(cardFitnessData.count[1]))
         / (60 * parseInt(cardFitnessData.goal[0]) + parseInt(cardFitnessData.goal[1]))
       ) : (
         cardFitnessData.count / cardFitnessData.goal
       );
+
+      if (cardFitnessProgress >= 1) cardFitnessProgress = 1;
 
       progressArray.push(cardFitnessProgress);
     });    

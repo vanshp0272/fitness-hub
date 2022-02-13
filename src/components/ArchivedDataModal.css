@@ -52,5 +52,6 @@
 
     .modal-archived__card-container {
         gap: 4em;
+        grid-template-columns: repeat(auto-fit, minmax(300px, .5fr));
     }
 }
