@@ -19,7 +19,7 @@ export default function ArchivedProgressCard({
     <div className="archived-card">
       <div className="archived-card__progress-container">
         <div className="archived-card__date text text--bold text--small">
-          {date.split('T')[0]}
+          { new Date(date).toLocaleDateString()}
         </div>
         <CircularProgressbar
           className="archived-card__progress"
