@@ -24,9 +24,9 @@ export default function UpdateModal({
 
   // Handle change when count/goal is single value
   function handleChange(event) {
-    if (event.target.id === "count") {
+    if (event.target.id === `count--${name}`) {
       setCount(event.target.value);
-    } else if (event.target.id === "goal") {
+    } else if (event.target.id === `goal--${name}`) {
       if (doubleInput) return;
       setGoal(event.target.value);
     }
@@ -34,22 +34,22 @@ export default function UpdateModal({
 
   // Handle change when count/goal have multiple elements
   function handleDoubleChange(event) {
-    if (event.target.id === 'count-1') {
+    if (event.target.id === `count-1--${name}`) {
       setCount(prevCount => {
         return [event.target.value, prevCount[1]];
       });
     }
-    else if (event.target.id === 'count-2') {
+    else if (event.target.id === `count-2--${name}`) {
       setCount(prevCount => {
         return [prevCount[0], event.target.value];
       });
     }
-    else if (event.target.id === "goal-1") {
+    else if (event.target.id === `goal-1--${name}`) {
       setGoal(prevGoal => {
         return [event.target.value, prevGoal[1]];
       });
     }
-    else if (event.target.id === "goal-2") {
+    else if (event.target.id === `goal-2--${name}`) {
       setGoal(prevGoal => {
         return [prevGoal[0], event.target.value];
       });
@@ -66,66 +66,86 @@ export default function UpdateModal({
             onClick={onClose} />
         </div>
         <form className="modal__body" onSubmit={handleSubmit}>
+          {!doubleInput ? (
+            <label
+              htmlFor={`count--${name}`}
+              className="text text--dark text--med"
+            >
+              Enter new count:
+            </label>
+          ) : (
+            <div className="text text--dark text--med">Enter new count:</div>
+          )}
           <div className="modal__row">
             <div className="modal__input-container">
-              <label
-                htmlFor={doubleInput ? 'count-1' : 'count'}
+              {doubleInput && (<label
+                htmlFor={`count-1--${name}`}
                 className="text text--dark text--med">
-                Enter new count{doubleInput ? ' (hrs)' : ''}:
-              </label>
+                (hrs)
+              </label>)}
               <input
                 className="modal__input"
                 type="number"
                 step={step}
                 min="0"
-                id={doubleInput ? 'count-1' : 'count'}
+                id={doubleInput ? `count-1--${name}` : `count--${name}`}
                 value={doubleInput ? count[0] : count}
                 onChange={doubleInput ? handleDoubleChange : handleChange} />
             </div>
             {doubleInput && (<div className="modal__input-container">
               <label
-                htmlFor='count-2'
+                htmlFor={`count-2--${name}`}
                 className="text text--dark text--med">
-                Enter new count (min):
+                (min)
               </label>
               <input
                 className="modal__input"
                 type="number"
                 step={step}
                 min="0"
-                id='count-2'
+                id={`count-2--${name}`}
                 value={count[1]}
                 onChange={handleDoubleChange} />
             </div>)}
           </div>
+          {!doubleInput ? (
+            <label
+              htmlFor={`goal--${name}`}
+              className="text text--dark text--med"
+            >
+              Enter new goal:
+            </label>
+          ) : (
+            <div className="text text--dark text--med">Enter new goal:</div>
+          )}
           <div className="modal__row">
             <div className="modal__input-container">
-              <label
-                htmlFor={doubleInput ? 'goal-1' : 'goal'}
+              {doubleInput && (<label
+                htmlFor={`goal-1--${name}`}
                 className="text text--dark text--med">
-                Enter new goal {doubleInput ? '(hrs)' : ''}:
-              </label>
+                (hrs)
+              </label>)}
               <input
                 className="modal__input"
                 type="number"
                 step={step}
                 min={doubleInput ? '0' : step}
-                id={doubleInput ? 'goal-1' : 'goal'}
+                id={doubleInput ? `goal-1--${name}` : `goal--${name}`}
                 value={doubleInput ? goal[0] : goal}
                 onChange={doubleInput ? handleDoubleChange : handleChange} />
             </div>
             {doubleInput && (<div className="modal__input-container">
               <label
-                htmlFor='goal-2'
+                htmlFor={`goal-2--${name}`}
                 className="text text--dark text--med">
-                Enter new goal (min):
+                (min)
               </label>
               <input
                 className="modal__input"
                 type="number"
                 step={step}
                 min={goal[0] === '0' ? '1' : '0'}
-                id='goal-2'
+                id={`goal-2--${name}`}
                 value={goal[1]}
                 onChange={handleDoubleChange} />
             </div>)}
