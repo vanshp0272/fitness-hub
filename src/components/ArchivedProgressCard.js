@@ -33,7 +33,9 @@ export default function ArchivedProgressCard({
             <IoFootsteps className="text text--small" />
           </div>
           <div className="summary__content">
-            <div className="summary__count">{walkCount} / {walkGoal}</div>
+            <div className="summary__count">
+              {countFormatter(walkCount, "km")} / {countFormatter(walkGoal, "km")}
+              </div>
           </div>
         </div>
         <div className="archived-card__summary summary--orange">
