@@ -30,6 +30,9 @@ This project was built considering the following learnings:
 ## ⚙️ Functionality
 
 When the users open the application for the first time, they are presented with 5 cards: one that displays the global progress of the day, and four that contain information on each category (walk, workout, water, sleep). Each new days the counts are reset to 0, and the previous data is stored so that the users can keep track of their health across multiple days. To access the archive, click on the button in the upper right corner. In order to enter the daily data or to update the goals, click on the edit button on the corresponding card. The following images show how the app works:
+
 ![Captura de pantalla de 2022-02-15 19-51-54](https://user-images.githubusercontent.com/75866274/154181326-b0a427da-9fbf-4ecd-830e-2c0e719fff76.png)
+
 ![Captura de pantalla de 2022-02-15 19-52-05](https://user-images.githubusercontent.com/75866274/154181332-26f57be3-6ee7-44d9-9260-45dfd600a17f.png)
+
 ![Captura de pantalla de 2022-02-15 19-52-33](https://user-images.githubusercontent.com/75866274/154181340-0c212d6c-8ac5-4af2-987a-9f3d484b71b8.png)
