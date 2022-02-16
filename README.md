@@ -1,6 +1,6 @@
 # 💪 Fitness Hub
 
-## 📃 Project Description Cancel changes
+## 📃 Project Description
 
 Fitness Hub is a web application that allows the users to keep track of their health by a simple easy-to-use interface. The app can record information on different categories: walk distance, workout time, water intake, and sleep time. The data is displayed in different cards which contain the count and the goal for the user. If the users want to consult previous data, they can click on the stats button to display new cards containing a summary of their previous activity.
 
