@@ -6,7 +6,7 @@ import UpdateModal from "./components/UpdateModal";
 import { useEffect, useState } from "react";
 import ArchivedDataModal from "./components/ArchivedDataModal";
 import { ImStatsBars } from 'react-icons/im';
-import { cardInformation } from './context/fitnessDataContext';
+import { fitnessCategory } from './context/fitnessDataContext';
 
 function App() {
   const {
@@ -41,7 +41,7 @@ function App() {
       </section>
 
       <section className="card-container">
-        {cardInformation.map(card => (
+        {fitnessCategory.map(card => (
           <ProgressCard
             key={card.name}
             name={card.name.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase())}
@@ -55,7 +55,7 @@ function App() {
         ))}
       </section>
 
-      {cardInformation.map(card => (
+      {fitnessCategory.map(card => (
         <UpdateModal
           key={`${card.name}-modal`}
           show={currentModal === card.name}

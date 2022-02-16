@@ -8,7 +8,7 @@ export function useFitnessData() {
 }
 
 // Array of objects describing each type of fitness card
-export const cardInformation = [
+export const fitnessCategory = [
   {
     name: "walk",
     color: "green",
@@ -53,12 +53,12 @@ export const FitnessDataProvider = ({ children }) => {
 
   // Set fitnessData to local storage value, else to default data
   const defaultData = [];
-  cardInformation.forEach(cardData => {
+  fitnessCategory.forEach(category => {
     const card = {};
-    card.name = cardData.name;
+    card.name = category.name;
     card.date = new Date();
-    card.count = cardData.doubleInput ? [0,0] : 0;
-    card.goal = cardData.defaultGoal;
+    card.count = category.doubleInput ? [0,0] : 0;
+    card.goal = category.defaultGoal;
 
     defaultData.push(card);
   });
@@ -70,8 +70,8 @@ export const FitnessDataProvider = ({ children }) => {
   function resetDailyData() {
     // Get previous goals to reuse them
     const previousGoals = {};
-    cardInformation.forEach(card => {
-      previousGoals[card.name] = getFitnessData(card.name).goal;
+    fitnessCategory.forEach(category => {
+      previousGoals[category.name] = getFitnessData(category.name).goal;
     });
 
     // Generate an archive
@@ -79,18 +79,18 @@ export const FitnessDataProvider = ({ children }) => {
     archiveData(globalProgress);
 
     // Delete data
-    cardInformation.forEach(card => {
-      deleteFitnessData(card.name);
+    fitnessCategory.forEach(category => {
+      deleteFitnessData(category.name);
     });
 
     // Create new data object and set it as current fitness data
     const newDataArray = [];
-    cardInformation.forEach(card => {
+    fitnessCategory.forEach(category => {
       const newFitnessData = {};
-      newFitnessData.name = card.name;
+      newFitnessData.name = category.name;
       newFitnessData.date = new Date();
-      newFitnessData.count = card.doubleInput ? [0,0] : 0;
-      newFitnessData.goal = previousGoals[card.name];
+      newFitnessData.count = category.doubleInput ? [0,0] : 0;
+      newFitnessData.goal = previousGoals[category.name];
       
       newDataArray.push(newFitnessData);
     })
@@ -128,9 +128,9 @@ export const FitnessDataProvider = ({ children }) => {
   // Return the global progress combining each card data
   function getDailyProgress() {
     const progressArray = []; // Array to store each category's progress
-    cardInformation.forEach(card => {
-      const cardFitnessData = getFitnessData(card.name);
-      let cardFitnessProgress = card.doubleInput ? (
+    fitnessCategory.forEach(category => {
+      const cardFitnessData = getFitnessData(category.name);
+      let cardFitnessProgress = category.doubleInput ? (
         (60 * parseInt(cardFitnessData.count[0]) + parseInt(cardFitnessData.count[1]))
         / (60 * parseInt(cardFitnessData.goal[0]) + parseInt(cardFitnessData.goal[1]))
       ) : (
@@ -152,10 +152,10 @@ export const FitnessDataProvider = ({ children }) => {
       date: getFitnessData("walk").date,
       globalProgress: globalProgress
     };
-    cardInformation.forEach(card => {
-      newArchive[card.name] = {};
-      newArchive[card.name].count = getFitnessData(card.name).count;
-      newArchive[card.name].goal = getFitnessData(card.name).goal;
+    fitnessCategory.forEach(category => {
+      newArchive[category.name] = {};
+      newArchive[category.name].count = getFitnessData(category.name).count;
+      newArchive[category.name].goal = getFitnessData(category.name).goal;
     });
 
     setArchivedData(previousData => {
