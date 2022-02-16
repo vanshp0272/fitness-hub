@@ -6,6 +6,9 @@ import ArchivedProgressCard from './ArchivedProgressCard';
 export default function ArchivedDataModal({ show }) {
   const { archivedData } = useFitnessData();
 
+  // Sort data in descending date
+  archivedData.sort((card1, card2) => Date.parse(card2.date) - Date.parse(card1.date));
+
   return (
     <div className={`modal-archived ${show ? 'modal-archived--active' : ''}`}>
       <div className="modal-archived__title">
