@@ -16,9 +16,7 @@ function App() {
   const [currentModal, setCurrentModal] = useState();
   const [archivedModalActive, setArchivedModalActive] = useState(false);
 
-  // Reset daily data if day changed
   useEffect(() => {
-    // Compare current date to date in some data object
     const prevDate = new Date(getFitnessData("walk").date);
     const currentDate = new Date();
 
