@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <header>
-        <h1 className="text text--bold logo">Fitness Hub</h1>
+        <h1 className="text text--bold logo">Fitness Tracker</h1>
         <ImStatsBars
           className="stats-btn"
           onClick={() => setArchivedModalActive(!archivedModalActive)} />

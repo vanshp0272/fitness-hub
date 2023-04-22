@@ -9,19 +9,30 @@
 }
 
 :root {
-    --light-bg-color: #eff5ff;
+    --light-bg-color: hsl(218, 41%, 15%);
+    /* --light-bg-color: #eff5ff; */
     --main-color: #8c52ff;
-    --dark-color: #18083a;
+    --dark-color: white;
+    /* --dark-color: #18083a; */
     --accent-color: #1ac774;
     --secondary-color: #ff6c21;
     --complement-color: #38b6ff; 
     --big-font: 2.4rem;
     --med-font: 1.8rem;
     --small-font: 1.3rem;
+    /* --small-color: red; */
     --tiny-font: 1rem;
     --margin-size: 1rem;
 }
-
+.summary__count {
+    color: white;
+} 
+.text.text--dark.text--med {
+    color: white;
+}
+.text.text--light.text--med {
+    color: white;
+}
 #root {
     position: absolute;
     top: 0;
